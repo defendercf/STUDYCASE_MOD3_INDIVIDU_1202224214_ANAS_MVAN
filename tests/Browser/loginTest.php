@@ -17,12 +17,13 @@ class loginTest extends DuskTestCase
   {
     $this->browse(callback: function (Browser $browser): void {
       $browser->visit(url: '/')
-        ->clickLink('Log in')
-        ->assertPathIs(path: '/login')
+        ->clickLink('Log in') // Click the Log In text
+        ->assertPathIs(path: '/login') // Check if we are in login page
+        // type in email and password
         ->type(field: 'email', value: 'admin@gmail.com')
         ->type(field: 'password', value: 'password')
-        ->press(button: 'LOG IN')
-        ->assertPathIs(path: '/dashboard');
+        ->press(button: 'LOG IN') // click log in button
+        ->assertPathIs(path: '/dashboard'); // Check if currently on dashboard
     });
   }
 

@@ -17,15 +17,16 @@ class logoutTest extends DuskTestCase
   {
     $this->browse(callback: function (Browser $browser): void {
       $browser->visit(url: '/')
-        ->clickLink('Log in')
-        ->assertPathIs(path: '/login')
+        ->clickLink('Log in') // Click the Log In text
+        ->assertPathIs(path: '/login') // Check if Path is Correct
+        // type in email and password
         ->type(field: 'email', value: 'admin@gmail.com')
         ->type(field: 'password', value: 'password')
-        ->press(button: 'LOG IN')
-        ->assertPathIs(path: '/dashboard')
-        ->click('#click-dropdown')
-        ->clickLink('Log Out')
-        ->assertPathIs(path: '/');
+        ->press(button: 'LOG IN') // click log in button
+        ->assertPathIs(path: '/dashboard') // Check if Path is Correct
+        ->click('#click-dropdown') // Click the dropdown menu at the top right
+        ->clickLink('Log Out') // Click the hyperlink Log Out
+        ->assertPathIs(path: '/'); // Check if we are now in Welcome Page
     });
   }
 
